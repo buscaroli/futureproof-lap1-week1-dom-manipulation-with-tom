@@ -51,31 +51,47 @@ link1.addEventListener('click', () => {
     .getPropertyValue('font-size')
   console.log('defaultSize: ', fontSize)
 
-  if (paragraph1.fontSize === fontSize) {
-    paragraph1.style.fontSize = '40px'
-  } else {
-    paragraph1.style.fontSize = fontSize
-  }
-
-  console.log('newSize: ', paragraph1.fontSize)
-})
-
-function styleToggle(element) {
-  let fontSize = window
-    .getComputedStyle(element, null)
-    .getPropertyValue('font-size')
   let fontWeight = window
-    .getComputedStyle(element, null)
+    .getComputedStyle(paragraph1, null)
     .getPropertyValue('font-weight')
-  console.log(fontSize)
-  // console.log(fontWeight)
+  console.log('fontWeight: ', fontWeight)
 
-  element.fontSize === fontSize
-    ? (element.style.fontSize = '40px')
-    : (element.style.fontSize = fontSize)
-  console.log('newSize: ', element.fontSize)
+  fontSize === '30px'
+    ? (paragraph1.style.fontSize = '20px')
+    : (paragraph1.style.fontSize = '30px')
 
-  element.fontWeight === fontWeight
-    ? (element.style.fontWeight = 'bold')
-    : (element.style.fontWeight = fontWeight)
+  paragraph1.fontWeight === 'bold'
+    ? (paragraph1.style.fontWeight = 'normal')
+    : (paragraph1.style.fontWeight = 'bold')
+})
+console.log(fontWeight)
+let isOn = true
+
+if (isOn) {
+  paragraph1.style.fontSize = '20px'
+  paragraph1.style.fontWeight = 400
+} else {
+  paragraph1.style.fontSize = '30px'
+  paragraph1.style.fontWeight = 700
 }
+isOn = !isOn
+
+// function styleToggle(element) {
+//   let fontSize = window
+//     .getComputedStyle(element, null)
+//     .getPropertyValue('font-size')
+//   let fontWeight = window
+//     .getComputedStyle(element, null)
+//     .getPropertyValue('font-weight')
+//   console.log(fontSize)
+//   // console.log(fontWeight)
+
+//   element.fontSize === fontSize
+//     ? (element.style.fontSize = '40px')
+//     : (element.style.fontSize = fontSize)
+//   console.log('newSize: ', element.fontSize)
+
+//   element.fontWeight === fontWeight
+//     ? (element.style.fontWeight = 'bold')
+//     : (element.style.fontWeight = fontWeight)
+// }
