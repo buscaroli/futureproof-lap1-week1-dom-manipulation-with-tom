@@ -23,6 +23,7 @@ header1.addEventListener('click', () => {
   header1.style.backgroundColor = 'yellow'
 })
 
+// rstore the BG colour og the h1 when the mouse leaves its area
 header1.addEventListener('mouseleave', () => {
   header1.style.backgroundColor = 'white'
 })
@@ -42,59 +43,36 @@ function addParagraph(e) {
 }
 
 // toggler for text size and font weight of the paragraphs
-let isOn1 = true
+// NB toggle can't be a boolean as it would be passed as a value and
+// the couldn't be modified inside a function.
+// By making it an object it will be passed by reference
+let toggle1 = { isOn: true }
+let toggle2 = { isOn: true }
+let toggle3 = { isOn: true }
 
 // change BG colour of paragraphs
 link1.addEventListener('click', () => {
-  // styleToggle(paragraph1)
-  // console.log(paragraph1)
-
-  let fontSize = window
-    .getComputedStyle(paragraph1, null)
-    .getPropertyValue('font-size')
-  // console.log('defaultSize: ', fontSize)
-
-  let fontWeight = window
-    .getComputedStyle(paragraph1, null)
-    .getPropertyValue('font-weight')
-  // console.log('fontWeight: ', fontWeight)
-
-  console.log(fontWeight)
-
-  if (isOn1) {
-    paragraph1.style.fontSize = '30px'
-    paragraph1.style.fontWeight = 700
-  } else {
-    paragraph1.style.fontSize = '20px'
-    paragraph1.style.fontWeight = 400
-  }
-  isOn1 = !isOn1
-
-  // fontSize === '30px'
-  //   ? (paragraph1.style.fontSize = '20px')
-  //   : (paragraph1.style.fontSize = '30px')
-
-  // fontWeight === 'bold'
-  //   ? (paragraph1.style.fontWeight = 200)
-  //   : (paragraph1.style.fontWeight = 700)
+  handleLink(paragraph1, toggle1)
 })
 
-// function styleToggle(element) {
-//   let fontSize = window
-//     .getComputedStyle(element, null)
-//     .getPropertyValue('font-size')
-//   let fontWeight = window
-//     .getComputedStyle(element, null)
-//     .getPropertyValue('font-weight')
-//   console.log(fontSize)
-//   // console.log(fontWeight)
+link2.addEventListener('click', () => {
+  handleLink(paragraph2, toggle2)
+})
 
-//   element.fontSize === fontSize
-//     ? (element.style.fontSize = '40px')
-//     : (element.style.fontSize = fontSize)
-//   console.log('newSize: ', element.fontSize)
+link3.addEventListener('click', () => {
+  handleLink(paragraph3, toggle3)
+})
 
-//   element.fontWeight === fontWeight
-//     ? (element.style.fontWeight = 'bold')
-//     : (element.style.fontWeight = fontWeight)
-// }
+// this function takes one paragraph reference and one toggler reference
+// and modifies the fontweight and fontsize properties of the paragraph
+// The toggler keeps track of the state and needs to be a reference type
+function handleLink(paragraph, toggle) {
+  if (toggle.isOn) {
+    paragraph.style.fontSize = '30px'
+    paragraph.style.fontWeight = 700
+  } else {
+    paragraph.style.fontSize = '20px'
+    paragraph.style.fontWeight = 400
+  }
+  toggle.isOn = !toggle.isOn
+}
