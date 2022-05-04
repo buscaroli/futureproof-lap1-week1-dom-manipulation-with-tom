@@ -5,8 +5,30 @@ const link1 = document.querySelector('#link-1')
 const link2 = document.querySelector('#link-2')
 const link3 = document.querySelector('#link-3')
 
-console.log(header1)
-console.log(header2)
-console.log(link1)
-console.log(link2)
-console.log(link3)
+const section2 = document.querySelector('#section-2')
+
+// console.log(header1)
+// console.log(header2)
+// console.log(link1)
+// console.log(link2)
+// console.log(link3)
+console.log(section2)
+
+// change BG colour of h1 when clicked
+header1.addEventListener('click', () => {
+  header1.style.backgroundColor = 'yellow'
+})
+
+// change text of h2 when clicked
+header2.addEventListener('click', () => {
+  header2.textContent = 'I am a new H2!'
+})
+
+// add a paragraph to section-2
+document.addEventListener('keypress', addParagraph)
+
+function addParagraph() {
+  let newParagraph = document.createElement('p')
+  newParagraph.textContent = `new paragraph!`
+  return section2.appendChild(newParagraph)
+}
