@@ -41,40 +41,43 @@ function addParagraph(e) {
   return section2.appendChild(newParagraph)
 }
 
+// toggler for text size and font weight of the paragraphs
+let isOn1 = true
+
 // change BG colour of paragraphs
 link1.addEventListener('click', () => {
   // styleToggle(paragraph1)
-  console.log(paragraph1)
+  // console.log(paragraph1)
 
   let fontSize = window
     .getComputedStyle(paragraph1, null)
     .getPropertyValue('font-size')
-  console.log('defaultSize: ', fontSize)
+  // console.log('defaultSize: ', fontSize)
 
   let fontWeight = window
     .getComputedStyle(paragraph1, null)
     .getPropertyValue('font-weight')
-  console.log('fontWeight: ', fontWeight)
+  // console.log('fontWeight: ', fontWeight)
 
-  fontSize === '30px'
-    ? (paragraph1.style.fontSize = '20px')
-    : (paragraph1.style.fontSize = '30px')
+  console.log(fontWeight)
 
-  paragraph1.fontWeight === 'bold'
-    ? (paragraph1.style.fontWeight = 'normal')
-    : (paragraph1.style.fontWeight = 'bold')
+  if (isOn1) {
+    paragraph1.style.fontSize = '30px'
+    paragraph1.style.fontWeight = 700
+  } else {
+    paragraph1.style.fontSize = '20px'
+    paragraph1.style.fontWeight = 400
+  }
+  isOn1 = !isOn1
+
+  // fontSize === '30px'
+  //   ? (paragraph1.style.fontSize = '20px')
+  //   : (paragraph1.style.fontSize = '30px')
+
+  // fontWeight === 'bold'
+  //   ? (paragraph1.style.fontWeight = 200)
+  //   : (paragraph1.style.fontWeight = 700)
 })
-console.log(fontWeight)
-let isOn = true
-
-if (isOn) {
-  paragraph1.style.fontSize = '20px'
-  paragraph1.style.fontWeight = 400
-} else {
-  paragraph1.style.fontSize = '30px'
-  paragraph1.style.fontWeight = 700
-}
-isOn = !isOn
 
 // function styleToggle(element) {
 //   let fontSize = window
