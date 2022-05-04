@@ -1,0 +1,23 @@
+{
+  "name": "dom-manipulation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buscaroli/futureproof-lap1-week1-dom-manipulation-with-tom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buscaroli/futureproof-lap1-week1-dom-manipulation-with-tom/issues"
+  },
+  "homepage": "https://github.com/buscaroli/futureproof-lap1-week1-dom-manipulation-with-tom#readme",
+  "devDependencies": {
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2"
+  }
+}
