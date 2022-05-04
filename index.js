@@ -1,3 +1,4 @@
+// creating the references for the required elements
 const header1 = document.querySelector('h1')
 const header2 = document.querySelector('h2')
 
@@ -11,19 +12,12 @@ const paragraph1 = document.querySelector('#paragraph-1')
 const paragraph2 = document.querySelector('#paragraph-2')
 const paragraph3 = document.querySelector('#paragraph-3')
 
-// console.log(header1)
-// console.log(header2)
-// console.log(link1)
-// console.log(link2)
-// console.log(link3)
-// console.log(section2)
-
 // change BG colour of h1 when clicked
 header1.addEventListener('click', () => {
   header1.style.backgroundColor = 'yellow'
 })
 
-// rstore the BG colour og the h1 when the mouse leaves its area
+// restore the BG colour og the h1 when the mouse leaves its area
 header1.addEventListener('mouseleave', () => {
   header1.style.backgroundColor = 'white'
 })
@@ -43,8 +37,8 @@ function addParagraph(e) {
 }
 
 // toggler for text size and font weight of the paragraphs
-// NB toggle can't be a boolean as it would be passed as a value and
-// the couldn't be modified inside a function.
+// NB toggle can't be a boolean as it would be passed as a value
+// and couldn't be modified from within a function.
 // By making it an object it will be passed by reference
 let toggle1 = { isOn: true }
 let toggle2 = { isOn: true }
@@ -63,6 +57,7 @@ link3.addEventListener('click', () => {
   handleLink(paragraph3, toggle3)
 })
 
+// Utility Function
 // this function takes one paragraph reference and one toggler reference
 // and modifies the fontweight and fontsize properties of the paragraph
 // The toggler keeps track of the state and needs to be a reference type
